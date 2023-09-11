@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 export default function InputSample() {
   const [inputs, setInputs] = useState({
     username: "",
     nickname: "",
   });
+
+  // useRef() 를 사용하여 Ref 객체를 만들기
+  const nameInput = useRef();
 
   // 비구조화 할당을 통해 값 추출
   const { username, nickname } = inputs;
@@ -23,6 +26,8 @@ export default function InputSample() {
       username: "",
       nickname: "",
     });
+    // Ref객체의 .current 값은 우리가 원하는 DOM을 가르킵니다.
+    nameInput.current.focus();
   };
 
   return (
@@ -32,6 +37,7 @@ export default function InputSample() {
         placeholder="이름"
         onChange={onChange}
         value={username}
+        ref={nameInput} // 선택하고 싶은 dom에 ref값으로 설정해주기
       />
       <input
         name="nickname"
