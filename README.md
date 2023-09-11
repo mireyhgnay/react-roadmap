@@ -9,13 +9,13 @@
 
 ## Reference
 
-[🔗 JavaScript Roadmap](https://roadmap.sh/react)
+[🔗 React Roadmap](https://roadmap.sh/react)
 
 [🔗 react.dev 공식 문서](https://react.dev/learn)
+
+[🔗 react.dev 공식 문서 한글판](https://react-ko.dev/learn#rendering-lists)
 
 [🔗 벨로퍼트와 함께하는 모던 리액트](https://react.vlpt.us/)
 
 <br>
 <br>
-
-## List
