@@ -1,8 +1,8 @@
 import React from "react";
 import Hello from "./Hello";
 import Wrapper from "./Wrapper";
-
 import Counter from "./Counter";
+import InputSample from "./InputSample";
 
 function App() {
   const name = "변수로 전달한 name";
@@ -30,6 +30,10 @@ function App() {
 
       <Wrapper>
         <Counter />
+      </Wrapper>
+
+      <Wrapper>
+        <InputSample />
       </Wrapper>
     </>
   );
