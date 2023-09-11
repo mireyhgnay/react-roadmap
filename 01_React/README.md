@@ -1,0 +1,192 @@
+# CRA 없이 React Project 셋팅하기
+
+<br>
+
+### 🔗 참조
+
+[https://velog.io/@kimeunseo/CRA-없이-React-개발환경-구축하기](https://velog.io/@kimeunseo/CRA-%EC%97%86%EC%9D%B4-React-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0)
+
+[https://likelionsungguk.github.io/22-04-01/cra없이-리액트-프로젝트-설정하기](https://likelionsungguk.github.io/22-04-01/cra%EC%97%86%EC%9D%B4-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
+
+<br>
+
+## CRA(Create React App) 를 사용하는 이유는?
+
+- 프로젝트 세팅을 위해 따로 학습할 필요가 없기 때문에
+- 고민하지 않고 빠르게 설정 가능
+
+<br>
+
+## CRA에서 셋팅해주는 내용은?
+
+- webpack
+- babel
+- eslint
+- 기타 등등
+
+⇒ 일단 웹팩, 바벨 설정만으로 리액트 프로젝트 띄워보기!
+
+<br>
+<br>
+
+## 1. 프로젝트 폴더 위치에서 package.json 파일 자동 생성
+
+```bash
+npm init -y
+```
+
+<br>
+
+## 2. Webpck
+
+```bash
+npm i -D webpack webpack-cli
+```
+
+<br>
+
+**`webpack dev server`**
+
+**webpack dev server를 사용하면 파일 변경 후 매번 웹팩 명령어를 실행하지 않아도 됩니다.**
+
+코드 변경 후 저장하면 자동으로 새로고침하여 반영해줍니다.
+
+```bash
+npm i -D webpack-dev-server
+```
+
+<br>
+
+**`html-webpack-plugin`**
+
+플러그인이 동적으로 생성한 HTML 코드 안에 웹팩으로 빌드한 결과물을 로딩하는 코드를 자동으로 주입시켜줍니다.
+
+개발자가 index.html 파일에 스크립트 로딩관련 코드를 직접 작성하지 않아도 됩니다.
+
+```bash
+npm install -D html-webpack-plugin
+```
+
+<br>
+
+**`webpack.config.js`**
+
+웹팩 환경설정 하는 파일입니다.
+
+[webpack.config.js](https://github.com/mireyhgnay/react-roadmap/blob/main/01_React/webpack.config.js)
+
+<br>
+
+**`webpack 실행하기`**
+
+```js
+"scripts": {
+    "build": "webpack --mode=production",
+    "start": "webpack serve --mode=development"
+  },
+```
+
+- build : 배포시에만 웹팩 명령어를 사용한다.
+- start : 개발시에는 webpack dev server 를 실행합니다.
+- mode : 개발(development), 배포(production)에 맞게 설정해줍니다.
+
+<br>
+
+## 3. Babel
+
+ECMAScript 2015+ 코드를 현재 및 과거의 브라우저와 같은 환경에서 호환되는 버전으로 변환하기 위해 사용하는 도구입니다.
+
+모든 브라우저에서 호환이 되도록 자스 코드를 변환해주는 것!
+
+<br>
+
+```bash
+npm i -D @babel/core @babel/cli @babel/preset-env @babel/preset-react babel-loader
+```
+
+- `@babel/preset-env` : ECMAScript2015+를 변환하는 프리셋(\*프리셋이란 간단하게 말해서 '플러그인 모음'입니다.)
+- `@babel/preset-react` : 리액트 변환을 위한 프리셋 (jsx 관련 plugin도 포함되어 있습니다.)
+- `babel-loader` : babel-loader을 사용하면 바벨을 webpack으로 통합해서 사용할 수 있습니다.
+
+<br>
+
+`webpack.config.js`
+
+```jsx
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|ts|tsx)$/, // 해당 파일명으로 끝나면 babel-loader가 처리
+        exclude: /node_modules/, // node_modules는 대상에서 제외
+        loader: "babel-loader", // 바벨 로더 추가
+      },
+    ],
+  },
+};
+```
+
+<br>
+
+`babel.config.js`
+
+설치한 프리셋(preset)을 설정에 추가합니다.
+
+> 프리셋 : 플러그인 모음
+
+```jsx
+// babel.config.js
+module.exports = {
+  presets: ["@babel/preset-env", "@babel/preset-react"],
+};
+```
+
+<br>
+
+## 4. ESLint
+
+ECMAScript 코드의 문제점을 검사하거나 정정할 때 사용하는 Javascript Lint 도구입니다.
+
+```bash
+npm -i -D eslint
+```
+
+<br>
+
+`--init` 옵션으로 eslint 설정을 손쉽게 구성할 수 있습니다. 답변에 따라 그에 맞는 .eslintrc 파일을 자동으로 생성해줍니다.
+
+https://lakelouise.tistory.com/199
+
+```jsx
+npx eslint --init
+```
+
+<br>
+
+## 5. React
+
+```bash
+npm i react react-dom
+```
+
+<br>
+<br>
+
+## ‼️셋팅 중 만난 에려
+
+### import React from “react”; 사용했을 때 eslint 에러발생
+
+[🔗 https://appletrick.github.io/posts/ES모듈사용방법/](https://appletrick.github.io/posts/ES%EB%AA%A8%EB%93%88%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95/)
+
+< 에러 문구 >  
+**Parsing error: ‘import’ and ‘export’ may appear only with ‘sourceType: module’ (eslint 오류)**
+
+< 해결 방법 >
+.eslintrc.json 파일에 sourceType , module 추가
+
+```js
+"parserOptions": {
+  "sourceType": "module",
+},
+```
