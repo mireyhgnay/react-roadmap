@@ -2,6 +2,8 @@ import React from "react";
 import Hello from "./Hello";
 import Wrapper from "./Wrapper";
 
+import Counter from "./Counter";
+
 function App() {
   const name = "변수로 전달한 name";
 
@@ -19,13 +21,16 @@ function App() {
     <>
       <Wrapper>
         <Hello
-        // 열리는 태그 내부에서는 이렇게 주석을 작성 할 수 있습니다.
+          name={name}
+          // 열리는 태그 내부에서는 이렇게 주석을 작성 할 수 있습니다.
         />
-        <Hello name="props로 전달한 name" color="red" />
+        <Hello name="props로 전달한 name" color="red" isSpecial />
         <Hello color="pink" />
       </Wrapper>
-      <p style={style}>안녕하세요~!</p>
-      <div className="name">{name}</div>
+
+      <Wrapper>
+        <Counter />
+      </Wrapper>
     </>
   );
 }
