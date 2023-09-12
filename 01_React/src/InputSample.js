@@ -32,6 +32,7 @@ export default function InputSample() {
 
   return (
     <div>
+      <h1>InputSample.js</h1>
       <input
         name="username"
         placeholder="이름"

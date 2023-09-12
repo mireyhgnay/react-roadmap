@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Hello from "./Hello";
 import Wrapper from "./Wrapper";
 import Counter from "./Counter";
 import InputSample from "./InputSample";
 import UserList from "./UserList";
+import CreateUser from "./CreateUser";
 
 function App() {
   const name = "변수로 전달한 name";
@@ -16,7 +17,8 @@ function App() {
     padding: "1rem", // 다른 단위 사용 시 문자열로 설정
   };
 
-  const users = [
+  // users 도 useState 를 사용하여 컴포넌트의 상태로서 관리됨
+  const [users, setUsers] = useState([
     {
       id: 1,
       username: "velopert",
@@ -32,13 +34,35 @@ function App() {
       username: "liz",
       email: "liz@example.com",
     },
-  ];
+  ]);
 
+  const [inputs, setInputs] = useState({
+    username: "",
+    email: "",
+  });
+  const { username, email } = inputs;
+  // input 상태 관리
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
   const nextId = useRef(4);
   const onCreate = () => {
-    // 나중에 구현 할 배열에 항목 추가하는 로직
-    // ...
+    const user = {
+      id: nextId.current,
+      username,
+      email,
+    };
+    setUsers([...users, user]); // users 배열을 복사해서 새로 등록되는 user 를 추가해줌
 
+    setInputs({
+      // input 초기화
+      username: "",
+      email: "",
+    });
     nextId.current += 1;
   };
 
@@ -64,6 +88,12 @@ function App() {
       </Wrapper>
 
       <Wrapper>
+        <CreateUser
+          username={username}
+          email={email}
+          onChange={onChange}
+          onCreate={onCreate}
+        />
         <UserList users={users} />
       </Wrapper>
     </>
