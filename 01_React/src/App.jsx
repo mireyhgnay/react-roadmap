@@ -66,6 +66,11 @@ function App() {
     nextId.current += 1;
   };
 
+  const onRemove = (id) => {
+    // user.id 가 id와 일치하지 않는 원소만 추출해서 새로운 배열을 만든다.
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
   return (
     // 주석
     /* 주석주석 */
@@ -94,7 +99,7 @@ function App() {
           onChange={onChange}
           onCreate={onCreate}
         />
-        <UserList users={users} />
+        <UserList users={users} onRemove={onRemove} />
       </Wrapper>
     </>
   );
