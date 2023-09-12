@@ -3,6 +3,7 @@ import Hello from "./Hello";
 import Wrapper from "./Wrapper";
 import Counter from "./Counter";
 import InputSample from "./InputSample";
+import UserList from "./UserList";
 
 function App() {
   const name = "변수로 전달한 name";
@@ -34,6 +35,10 @@ function App() {
 
       <Wrapper>
         <InputSample />
+      </Wrapper>
+
+      <Wrapper>
+        <UserList />
       </Wrapper>
     </>
   );
