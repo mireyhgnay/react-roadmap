@@ -23,16 +23,19 @@ function App() {
       id: 1,
       username: "velopert",
       email: "public.velopert@gmail.com",
+      active: true,
     },
     {
       id: 2,
       username: "tester",
       email: "tester@example.com",
+      active: false,
     },
     {
       id: 3,
       username: "liz",
       email: "liz@example.com",
+      active: false,
     },
   ]);
 
@@ -71,6 +74,15 @@ function App() {
     setUsers(users.filter((user) => user.id !== id));
   };
 
+  const onToggle = (id) => {
+    setUsers(
+      users.map((user) =>
+        // user.id 와 id가 일치하면 기존 active 설정의 반대로 (toggle)
+        user.id === id ? { ...user, active: !user.active } : user
+      )
+    );
+  };
+
   return (
     // 주석
     /* 주석주석 */
@@ -99,7 +111,7 @@ function App() {
           onChange={onChange}
           onCreate={onCreate}
         />
-        <UserList users={users} onRemove={onRemove} />
+        <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
       </Wrapper>
     </>
   );
