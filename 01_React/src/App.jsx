@@ -1,10 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useMemo } from "react";
 import Hello from "./Hello";
 import Wrapper from "./Wrapper";
 import Counter from "./Counter";
 import InputSample from "./InputSample";
 import UserList from "./UserList";
 import CreateUser from "./CreateUser";
+
+function countActiveUsers(users) {
+  console.log("활성 사용자 수를 세는중...");
+  // user.active 가 true인 사용자의 수
+  return users.filter((user) => user.active).length;
+}
 
 function App() {
   const name = "변수로 전달한 name";
@@ -83,6 +89,8 @@ function App() {
     );
   };
 
+  const count = useMemo(() => countActiveUsers(users), [users]);
+
   return (
     // 주석
     /* 주석주석 */
@@ -112,6 +120,7 @@ function App() {
           onCreate={onCreate}
         />
         <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
+        <div>활성사용자 수 : {count}</div>
       </Wrapper>
     </>
   );
