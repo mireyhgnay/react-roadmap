@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from "react";
+import React, { useRef, useState, useMemo, useCallback } from "react";
 import Hello from "./Hello";
 import Wrapper from "./Wrapper";
 import Counter from "./Counter";
@@ -50,16 +50,22 @@ function App() {
     email: "",
   });
   const { username, email } = inputs;
+
   // input 상태 관리
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
+  const onChange = useCallback(
+    (e) => {
+      const { name, value } = e.target;
+      setInputs({
+        ...inputs,
+        [name]: value,
+      });
+    },
+    [inputs]
+  );
+
   const nextId = useRef(4);
-  const onCreate = () => {
+
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       username,
@@ -73,21 +79,27 @@ function App() {
       email: "",
     });
     nextId.current += 1;
-  };
+  }, [users, username, email]);
 
-  const onRemove = (id) => {
-    // user.id 가 id와 일치하지 않는 원소만 추출해서 새로운 배열을 만든다.
-    setUsers(users.filter((user) => user.id !== id));
-  };
+  const onRemove = useCallback(
+    (id) => {
+      // user.id 가 id와 일치하지 않는 원소만 추출해서 새로운 배열을 만든다.
+      setUsers(users.filter((user) => user.id !== id));
+    },
+    [users]
+  );
 
-  const onToggle = (id) => {
-    setUsers(
-      users.map((user) =>
-        // user.id 와 id가 일치하면 기존 active 설정의 반대로 (toggle)
-        user.id === id ? { ...user, active: !user.active } : user
-      )
-    );
-  };
+  const onToggle = useCallback(
+    (id) => {
+      setUsers(
+        users.map((user) =>
+          // user.id 와 id가 일치하면 기존 active 설정의 반대로 (toggle)
+          user.id === id ? { ...user, active: !user.active } : user
+        )
+      );
+    },
+    [users]
+  );
 
   const count = useMemo(() => countActiveUsers(users), [users]);
 
