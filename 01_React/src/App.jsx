@@ -52,16 +52,13 @@ function App() {
   const { username, email } = inputs;
 
   // input 상태 관리
-  const onChange = useCallback(
-    (e) => {
-      const { name, value } = e.target;
-      setInputs({
-        ...inputs,
-        [name]: value,
-      });
-    },
-    [inputs]
-  );
+  const onChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  }, []);
 
   const nextId = useRef(4);
 
@@ -79,27 +76,21 @@ function App() {
       email: "",
     });
     nextId.current += 1;
-  }, [users, username, email]);
+  }, [username, email]);
 
-  const onRemove = useCallback(
-    (id) => {
-      // user.id 가 id와 일치하지 않는 원소만 추출해서 새로운 배열을 만든다.
-      setUsers(users.filter((user) => user.id !== id));
-    },
-    [users]
-  );
+  const onRemove = useCallback((id) => {
+    // user.id 가 id와 일치하지 않는 원소만 추출해서 새로운 배열을 만든다.
+    setUsers(users.filter((user) => user.id !== id));
+  }, []);
 
-  const onToggle = useCallback(
-    (id) => {
-      setUsers(
-        users.map((user) =>
-          // user.id 와 id가 일치하면 기존 active 설정의 반대로 (toggle)
-          user.id === id ? { ...user, active: !user.active } : user
-        )
-      );
-    },
-    [users]
-  );
+  const onToggle = useCallback((id) => {
+    setUsers(
+      users.map((user) =>
+        // user.id 와 id가 일치하면 기존 active 설정의 반대로 (toggle)
+        user.id === id ? { ...user, active: !user.active } : user
+      )
+    );
+  }, []);
 
   const count = useMemo(() => countActiveUsers(users), [users]);
 
