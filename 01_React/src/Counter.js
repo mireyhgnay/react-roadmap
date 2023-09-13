@@ -1,6 +1,19 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+
+// reducer 함수 : 현재 상태와 액션 객체를 파라미터로 받아와서 새로운 상태를 반환해주는 함수입니다.
+function reducer(state, action) {
+  switch (action.type) {
+    case "INCREMENT":
+      return state + 1;
+    case "DECREMENT":
+      return state - 1;
+    default:
+      return state;
+  }
+}
 
 export default function Counter() {
+  /* useState 사용한 경우
   // 배열의 첫번째 원소는 현재 상태, 두번째 원소는 Setter 함수입니다.
   const [number, setNumber] = useState(0);
 
@@ -15,6 +28,18 @@ export default function Counter() {
   const onDecrease = () => {
     // setNumber(number - 1); // 업데이트 하고 싶은 새로운 값을 파라미터로 넣어주고 있다.
     setNumber((prevNumber) => prevNumber - 1);
+  };
+ */
+
+  // number 는 컴포넌트의 상태, dispatch 는 액션을 발생시키는 함수
+  const [number, dispatch] = useReducer(reducer, 0);
+
+  const onIncrease = () => {
+    dispatch({ type: "INCREMENT" });
+  };
+
+  const onDecrease = () => {
+    dispatch({ type: "DECREMENT" });
   };
 
   return (
