@@ -41,7 +41,7 @@ npm run start // dev 서버 실행하기
 
 - [Project 보러가기 👉](https://github.com/mireyhgnay/react-roadmap/tree/main/01_React)
 
-- [Docs : 공부 문서 보러가기 👉](https://github.com/mireyhgnay/react-roadmap/tree/main/01_React/Docs)
+- [Docs : 공부 문서 보러가기 👉](https://github.com/mireyhgnay/react-roadmap/tree/main/Study)
 
 <br>
 <br>
