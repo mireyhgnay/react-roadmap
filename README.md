@@ -32,6 +32,8 @@
 
 [📁 React Project 보러가기 👉](https://github.com/mireyhgnay/react-roadmap/tree/main/01_React)
 
+[📔 React Study 보러가기 👉](https://github.com/mireyhgnay/react-roadmap/tree/main/Study)
+
 <br>
 <br>
 
