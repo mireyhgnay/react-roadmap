@@ -60,3 +60,5 @@
 [🔗 코딩앙마 - React js 강좌](https://www.youtube.com/watch?v=05uFo_-SGXU&list=PLZKTXPmaJk8J_fHAzPLH8CJ_HO_M33e7-)
 
 [📔 코딩앙마 React Study 보러가기 👉](https://hyerimiya.notion.site/React-1fd1cd430bfd480c84677bf19fc2cffd?pvs=4)
+
+[👩🏻‍💻 토익 영단어장 만들기]()
