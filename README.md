@@ -62,3 +62,5 @@
 [📔 코딩앙마 React Study 보러가기 👉](https://hyerimiya.notion.site/React-1fd1cd430bfd480c84677bf19fc2cffd?pvs=4)
 
 [👩🏻‍💻 토익 영단어장 만들기](https://github.com/mireyhgnay/react-roadmap/tree/main/voca)
+
+[📖 토익 영단어장 보러가기 👉](https://github.com/mireyhgnay/voca)
