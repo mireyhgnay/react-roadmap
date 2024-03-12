@@ -71,3 +71,5 @@
 > 책에 있는 개념을 쭉 읽고 이해하고 예제로 연습하는 것을 목표로!
 
 [📖 스터디 공부 내용 간단~히 정리한 것들 보러가기 👉](https://hyerimiya.notion.site/Book-1f6bf10c6a4249dc8f90e342ec0ccf26?pvs=4)
+
+- [240312 :: 01. 리액트 소개 ~ 04. 엘리먼트 렌더링](https://hyerimiya.notion.site/24-03-12-1-4-5bacc2ca50ee4bfe8facc8595f1cd1ab?pvs=4)
