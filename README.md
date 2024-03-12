@@ -62,3 +62,12 @@
 [📔 코딩앙마 React Study 보러가기 👉](https://hyerimiya.notion.site/React-1fd1cd430bfd480c84677bf19fc2cffd?pvs=4)
 
 [📖 토익 영단어장 보러가기 👉](https://github.com/mireyhgnay/voca)
+
+<br>
+<br>
+
+## Book Study : "소플의 처음 만난 리액트"
+
+> 책에 있는 개념을 쭉 읽고 이해하고 예제로 연습하는 것을 목표로!
+
+[📖 스터디 공부 내용 간단~히 정리한 것들 보러가기 👉](https://hyerimiya.notion.site/Book-1f6bf10c6a4249dc8f90e342ec0ccf26?pvs=4)
