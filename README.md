@@ -73,3 +73,5 @@
 [📖 스터디 공부 내용 간단~히 정리한 것들 보러가기 👉](https://hyerimiya.notion.site/Book-1f6bf10c6a4249dc8f90e342ec0ccf26?pvs=4)
 
 - [240312 :: 01. 리액트 소개 ~ 04. 엘리먼트 렌더링](https://hyerimiya.notion.site/24-03-12-1-4-5bacc2ca50ee4bfe8facc8595f1cd1ab?pvs=4)
+
+- [240314 :: 05. 컴포넌트와 Props ~ 06. State와 생명주기 공부 내용 요약](https://hyerimiya.notion.site/01-04-5bacc2ca50ee4bfe8facc8595f1cd1ab?pvs=4)
