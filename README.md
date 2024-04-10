@@ -77,3 +77,11 @@
 - [240314 :: 05. 컴포넌트와 Props ~ 06. State와 생명주기 공부 내용 요약](https://hyerimiya.notion.site/01-04-5bacc2ca50ee4bfe8facc8595f1cd1ab?pvs=4)
 
 - [240318 :: 07. 훅 ~ 08. 이벤트 핸들링](https://hyerimiya.notion.site/07-08-9e4c938503bf49d592f3087369c8a9c2?pvs=4)
+
+<br>
+<br>
+
+## React 완벽 가이드 with Redux, Next.js, TypeScript
+
+[🔗 Udemy React 완벽 가이드 with Redux, Next.js, TypeScript
+](https://www.udemy.com/course/best-react/?couponCode=ST8MT40924)
